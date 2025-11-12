@@ -1,5 +1,0 @@
-{
-  "name": "Copy of Gemini OCR Extractor",
-  "description": "An intelligent OCR application that extracts text from uploaded images using the Gemini 2.5 Pro API. It features a persistent history of the last five extractions, with options to copy, download, or delete text.",
-  "requestFramePermissions": []
-}
