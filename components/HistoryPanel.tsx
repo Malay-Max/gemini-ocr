@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HistoryItem } from '../types';
 import Button from './Button';
@@ -6,12 +5,22 @@ import { Icon } from './icons';
 
 interface HistoryPanelProps {
   history: HistoryItem[];
+  isLoading: boolean;
   onSelect: (text: string) => void;
   onDelete: (id: string) => void;
   onClear: () => void;
 }
 
-const HistoryPanel: React.FC<HistoryPanelProps> = ({ history, onSelect, onDelete, onClear }) => {
+const HistoryPanel: React.FC<HistoryPanelProps> = ({ history, isLoading, onSelect, onDelete, onClear }) => {
+  if (isLoading) {
+    return (
+      <div className="bg-gray-800/50 p-4 rounded-lg h-full flex flex-col items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-400"></div>
+        <p className="mt-3 text-gray-400">Loading History...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gray-800/50 p-4 rounded-lg h-full flex flex-col">
       <div className="flex justify-between items-center mb-4">
